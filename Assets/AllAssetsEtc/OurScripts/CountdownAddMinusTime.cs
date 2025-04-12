@@ -16,7 +16,11 @@ public class CountdownAddMinusTime : MonoBehaviour
     public bool timeIsRunning = true;
     public float timeLeft;
     public TMP_Text countdown;
-
+     /// <summary>
+     /// maybe have tutorial info start here, get tmpro text to show up when it starts then fade when time 
+     // has gone down 5 seconds/10 seconds etc
+     /// 
+     /// </summary>
     void Start()
     {
         

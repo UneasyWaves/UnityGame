@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - AddTime
   - MinusTime
+  - SimonSaysWrongInput
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Rotation : MonoBehaviour
 {
 
-    int _rotationSpeed = 20;
+     float _rotationSpeed = 100*1;
 
 void Update () {
 

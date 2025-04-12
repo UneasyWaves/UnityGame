@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 // following  https://www.youtube.com/watch?v=PqkBuU08MOQ
 // Jack Glenn-Kennedy   T00063898,  April 1 2025
 // gamemanager script 
+//Works!!
 public class SimonSays : MonoBehaviour
 {
    public SpriteRenderer[] colours;
@@ -18,12 +21,13 @@ public class SimonSays : MonoBehaviour
    private int positionInSequence;
    private bool gameActive = false;
    private int inputInSequence;
+   public TMP_Text levelLost;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        levelLost.color = new Color(levelLost.color.r, levelLost.color.g, levelLost.color.b, 0f);
     }
 
     // Update is called once per frame
@@ -68,6 +72,7 @@ public class SimonSays : MonoBehaviour
 
     public void StartGame()
     {
+        levelLost.color = new Color(levelLost.color.r, levelLost.color.g, levelLost.color.b, 0f);
         activeSequence.Clear();
         inputInSequence = 0;
         positionInSequence = 0;
@@ -89,6 +94,9 @@ public class SimonSays : MonoBehaviour
        
             if(activeSequence[inputInSequence] == whichButton)
             {
+              // level 'you lost' text
+               levelLost.color = new Color(levelLost.color.r, levelLost.color.g, levelLost.color.b, 0f);
+               
                 Debug.Log("Correct");
                 inputInSequence++;
                 if(inputInSequence >= activeSequence.Count)
@@ -111,6 +119,10 @@ public class SimonSays : MonoBehaviour
             {
                 Debug.Log("Wrong");
                 gameActive = false;
+                // put time loss or something here? 
+                // and some indication that the game was lost - wrong input
+                levelLost.color = new Color(levelLost.color.r, levelLost.color.g, levelLost.color.b, 1f);
+
             }
         }
     }
